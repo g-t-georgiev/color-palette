@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <title>Color Ramp Generator</title>
+</head>
+
+<body>
+  <header class="toolbar">
+    <h1>🎨 Color Ramp Generator</h1>
+
+    <div class="toolbar-actions">
+      <button id="themeButton">Toggle Theme</button>
+      <button class="primary">Generate</button>
+    </div>
+  </header>
+
+  <div class="app">
+    <!-- ========================================= -->
+    <!-- MOBILE SIDEBAR TOGGLE -->
+    <!-- ========================================= -->
+    <input type="checkbox" id="mobileSidebarToggle" class="mobile-sidebar-toggle" />
+    <label class="mobile-sidebar-toggle-button" for="mobileSidebarToggle">Menu</label>
+    <label class="sidebar-open-page-overlay" for="mobileSidebarToggle"></label>
+
+    <!-- ========================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================= -->
+    <div class="sidebar">
+      <div class="sidebar__header">
+        <span>More Options</span>
+        <label class="mobile-sidebar-close-button" for="mobileSidebarToggle" aria-label="Close export panel">✕</label>
+      </div>
+
+      <div class="sidebar__content">
+        <!-- ========================================= -->
+        <!-- SETTINGS -->
+        <!-- ========================================= -->
+        <aside class="panel settings-panel">
+          <div class="panel-header">Settings</div>
+
+          <div class="panel-content">
+            <div class="form-group">
+              <label for="startColor">Start Color</label>
+
+              <input data-settings-id="startColor" id="startColor" type="color" value="#3b82f6">
+            </div>
+
+            <div class="form-group">
+              <label for="endColor">End Color</label>
+
+              <input data-settings-id="endColor" id="endColor" type="color" value="#ef4444">
+            </div>
+
+            <div class="form-group">
+              <label for="stopCount">Number of Stops</label>
+
+              <div class="row">
+                <input data-settings-id="stopCount" id="stopCount" type="number" min="2" max="64" value="8">
+                <!-- <button id="generateStops">Generate</button> -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="interpolation">Interpolation</label>
+
+              <select data-settings-id="interpolation" id="interpolation">
+                <option>RGB</option>
+                <option>HSL</option>
+                <option>Lab</option>
+                <option>LCH</option>
+                <option selected>OKLab</option>
+                <option>OKLCH</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="outputFormat">Output Format</label>
+
+              <select data-settings-id="outputFormat" id="outputFormat">
+                <option selected>HEX</option>
+                <option>RGB</option>
+                <option>RGBA</option>
+                <option>HSL</option>
+                <option>Lab</option>
+                <option>LCH</option>
+                <option>OKLab</option>
+                <option>OKLCH</option>
+              </select>
+            </div>
+          </div>
+        </aside>
+
+        <!-- ========================================= -->
+        <!-- EXPORT -->
+        <!-- ========================================= -->
+        <aside class="panel exports-panel">
+          <div class="panel-header">Export</div>
+          <div class="panel-content">
+            <div class="placeholder">Exporters coming in Part 4</div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CENTER -->
+    <!-- ========================================= -->
+    <main class="center">
+      <section class="panel">
+        <div class="panel-header">Gradient Editor</div>
+
+        <div class="panel-content">
+          <div id="gradientEditor">
+            <div id="gradientTrack" class="gradient-track"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">Discrete Preview</div>
+
+        <div id="discretePreview" class="panel-content">
+          <div class="placeholder">Preview</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">Continuous Gradient</div>
+
+        <div id="continuousPreview" class="panel-content">
+          <div class="placeholder">Gradient</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">Generated Stops</div>
+
+        <div id="stopList" class="panel-content"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/src/js/main.js" type="module"></script>
+
+</body>
+
+</html>
