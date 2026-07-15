@@ -83,13 +83,13 @@ export default class UIManager {
       target.classList.add("copied");
 
       let indicator = target.querySelector(".copy-indicator");
-      if (indicator) indicator.textContent = "✓ Copied!";
+      if (indicator) indicator.textContent = "Copied!";
 
       setTimeout(() => {
         target.classList.remove("copied");
 
         indicator = indicator?.isConnected ? indicator : target.querySelector(".copy-indicator");
-        if (indicator) indicator.textContent = "📋 Copy";
+        if (indicator) indicator.textContent = "Copy";
       }, 1200);
 
     } catch {

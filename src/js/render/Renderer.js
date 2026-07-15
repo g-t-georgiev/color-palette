@@ -91,7 +91,7 @@ export default class Renderer {
         <span class="stop-position">${Math.round(stop.position).toFixed(1)}%</span>
       </div>
       
-      <div class="copy-indicator">📋 Copy</div>`;
+      <div class="copy-indicator">Copy</div>`;
 
       this.ui.stopList.appendChild(row);
     });

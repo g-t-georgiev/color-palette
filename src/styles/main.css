@@ -398,6 +398,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   grid-column: 2;
   grid-template-rows: 320px auto auto auto;
   gap: 18px;
+  max-width: 770px;
+  justify-self: center;
 }
 
 /*=========================================================
@@ -574,8 +576,31 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   opacity: 0;
 
   color: var(--text2);
+  font-weight: 600;
+  text-align: center;
 
   transition: .15s;
+}
+
+.copy-indicator::before {
+  --copy-offset-y: 0;
+  --copy-offset-x: calc(-100% - 4px);
+
+  content: "";
+  display: block;
+
+  color: inherit;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  aspect-ratio: 1;
+
+  background: url("../assets/copy.svg") 0 0 / cover no-repeat;
+
+  translate: var(--copy-offset-x) var(--copy-offset-y);
 }
 
 .stop-item:hover .copy-indicator {
@@ -586,6 +611,13 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   opacity: 1;
   color: #3ddc84;
   transition: none;
+}
+
+.stop-item.copied .copy-indicator::before {
+  --copy-offset-x: -100%;
+
+  content: "✓";
+  background: none;
 }
 
 /*=========================================================
@@ -647,6 +679,11 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     display: flex;
     flex-direction: column;
     gap: 18px;
+  }
+
+  .center {
+    max-width: 560px;
+    justify-self: end;
   }
 }
 
