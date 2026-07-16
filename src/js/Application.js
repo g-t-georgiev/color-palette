@@ -2,7 +2,7 @@ import Store from "./core/Store.js";
 import EventBus from "./core/EventBus.js";
 
 import UIManager from "./ui/UIManager.js";
-import Renderer from "./render/renderer.js";
+import Renderer from "./render/Renderer.js";
 import GradientEditor from "./editor/GradientEditor.js";
 import ColorEngine from "./color/ColorEngine.js";
 import { StateKeys } from "./constants.js";
