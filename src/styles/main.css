@@ -31,6 +31,9 @@ body {
 =========================================================*/
 
 :root {
+  --full-viewport-height: 100vh;
+  --full-viewport-height: 100dvh;
+
   --accent: #4f8cff;
 
   --bg: #101114;
@@ -723,7 +726,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     top: 64px;
     right: 0;
     width: min(360px, 92vw);
-    height: calc(100vh - 64px);
+    height: calc(var(--full-viewport-height) - 64px);
+    height: calc();
     z-index: 1100;
 
     gap: 0;
